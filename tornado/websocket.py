@@ -77,8 +77,8 @@ class WebSocketHandler(tornado.web.RequestHandler):
             "Upgrade: WebSocket\r\n"
             "Connection: Upgrade\r\n"
             "Server: TornadoServer/0.1\r\n"
-            "WebSocket-Origin: " + self.request.headers["Origin"] + "\r\n"
-            "WebSocket-Location: ws://" + self.request.host +
+            "Sec-WebSocket-Origin: " + self.request.headers["Origin"] + "\r\n"
+            "Sec-WebSocket-Location: ws://" + self.request.host +
             self.request.path + "\r\n\r\n")
         self.async_callback(self.open)(*args, **kwargs)
 
